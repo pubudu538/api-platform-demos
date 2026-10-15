@@ -1,0 +1,5 @@
+{
+  "id": "{{KEY_ID}}",
+  "displayName": "Demo key",
+  "subscriptionId": "{{SUBSCRIPTION_ID}}"
+}

@@ -1,0 +1,6 @@
+# Copied next to the portal's docker-compose.yaml by scripts/01-setup.sh (Compose loads it automatically).
+# Makes the portal trust the shared self-signed certificate when it delivers webhooks to https://platform-api:9243.
+services:
+  api-portal:
+    environment:
+      NODE_EXTRA_CA_CERTS: /etc/api-portal/tls/cert.pem

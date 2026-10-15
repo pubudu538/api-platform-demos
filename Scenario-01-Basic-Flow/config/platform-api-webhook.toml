@@ -1,0 +1,6 @@
+
+# Webhook receiver: accepts signed API key / subscription events from the API Portal.
+# Appended to the portal distribution's configs/config.toml by scripts/01-setup.sh.
+[platform_api.webhook]
+enabled = true
+secret  = '{{ env "APIP_CP_WEBHOOK_SECRET" }}'

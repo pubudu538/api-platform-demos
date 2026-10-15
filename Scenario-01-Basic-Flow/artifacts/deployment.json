@@ -1,0 +1,5 @@
+{
+  "name": "deploy-{{TIMESTAMP}}",
+  "base": "current",
+  "gatewayId": "{{GATEWAY_ID}}"
+}

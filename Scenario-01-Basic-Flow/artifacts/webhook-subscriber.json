@@ -1,0 +1,8 @@
+{
+  "id": "platform-api-gateway-sync",
+  "displayName": "Platform API gateway sync",
+  "targetUrl": "https://platform-api:9243/api/internal/v0.9/webhook/events",
+  "secret": "{{WEBHOOK_SECRET}}",
+  "events": ["subscription.*", "apikey.*"],
+  "enabled": true
+}

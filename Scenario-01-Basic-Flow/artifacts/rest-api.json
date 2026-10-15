@@ -1,0 +1,21 @@
+{
+  "id": "reading-list-demo",
+  "displayName": "Reading List Demo",
+  "context": "/reading-list",
+  "version": "v1.0",
+  "projectId": "demo-project",
+  "upstream": {
+    "main": { "url": "https://apis.bijira.dev/samples/reading-list-api-service/v1.0" }
+  },
+  "operations": [
+    { "name": "List books",  "request": { "method": "GET",    "path": "/books" } },
+    { "name": "Add book",    "request": { "method": "POST",   "path": "/books" } },
+    { "name": "Get book",    "request": { "method": "GET",    "path": "/books/{id}" } },
+    { "name": "Update book", "request": { "method": "PUT",    "path": "/books/{id}" } },
+    { "name": "Delete book", "request": { "method": "DELETE", "path": "/books/{id}" } }
+  ],
+  "policies": [
+    { "name": "api-key-auth",            "version": "v1", "params": { "key": "x-api-key", "in": "header" } },
+    { "name": "subscription-validation", "version": "v1", "params": { "subscriptionKeyHeader": "Subscription-Key" } }
+  ]
+}

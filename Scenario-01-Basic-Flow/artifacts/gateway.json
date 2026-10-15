@@ -1,0 +1,8 @@
+{
+  "id": "local-gateway",
+  "displayName": "Local Gateway",
+  "endpoints": ["{{GATEWAY_URL}}"],
+  "functionalityType": "regular",
+  "version": "1.0",
+  "isCritical": false
+}

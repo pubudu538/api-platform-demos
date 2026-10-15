@@ -1,0 +1,8 @@
+{
+  "id": "Gold",
+  "displayName": "Gold",
+  "refId": "gold",
+  "limits": [
+    { "limitType": "REQUEST_COUNT", "limitCount": 1000, "timeUnit": "MINUTE" }
+  ]
+}

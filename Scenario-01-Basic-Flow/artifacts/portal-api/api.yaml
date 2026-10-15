@@ -1,0 +1,23 @@
+apiVersion: api-portal.api-platform.wso2.com/v1
+kind: RestApi
+metadata:
+  name: reading-list-demo-v1.0
+spec:
+  type: REST
+  displayName: Reading List Demo
+  version: v1.0
+  description: Reading List API fronted by the gateway. Requires an API key and a subscription token.
+  status: PUBLISHED
+  referenceId: reading-list-demo        # must equal the Platform API REST API id (rest-api.json)
+  labels: [default]
+  tags: [demo, books]
+  subscriptionPlans: ["Gold"]
+  agentVisibility: VISIBLE
+  businessInformation:
+    businessOwner: Platform Owner
+    businessOwnerEmail: owner@example.com
+    technicalOwner: API Team
+    technicalOwnerEmail: tech@example.com
+  endpoints:                             # the gateway URL + API context, not the backend
+    sandboxUrl: "{{GATEWAY_URL}}{{API_CONTEXT}}"
+    productionUrl: "{{GATEWAY_URL}}{{API_CONTEXT}}"
