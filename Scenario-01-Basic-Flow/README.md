@@ -16,28 +16,10 @@ API, a policy or a plan by editing a file, not a script.
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  subgraph portalstack["Portal compose project"]
-    PA["Platform API<br/>:9243"]
-    AP["API Portal<br/>:9543"]
-  end
-  subgraph gwstack["Gateway compose project"]
-    GC["Gateway controller<br/>:9090"]
-    GR["Gateway runtime<br/>Envoy + policy engine<br/>:8443"]
-  end
-  BE["Backend service<br/>reading-list sample"]
-  OP(["Operator scripts<br/>scripts/*.sh"])
-  CL(["API client"])
+![Scenario 01 basic flow: operator scripts drive the Platform API and API Portal, the portal sends signed webhooks to the Platform API, the Platform API pushes configuration to the gateway, and a client call passes api-key-auth then subscription-validation before reaching the backend](docs/flow.png)
 
-  OP -->|"REST: gateway, API, deployment"| PA
-  OP -->|"REST: API, plan, subscription, key"| AP
-  AP -->|"signed webhooks<br/>subscription.* apikey.*"| PA
-  PA <-->|"WebSocket control plane<br/>deployments, keys, subscriptions"| GC
-  GC -->|"xDS"| GR
-  CL -->|"x-api-key + Subscription-Key"| GR
-  GR -->|"after both policies pass"| BE
-```
+The numbered badges match the [steps below](#steps-scripts-and-artifacts). The gateway is the only teal element, the control plane
+(Platform API and API Portal) is amber, the caller is blue and the backend is pink.
 
 ## Networks
 
@@ -186,6 +168,7 @@ fix the cause and re-run steps 6 and 7 to resend.
 ```
 .
 ├── README.md
+├── docs/flow.png                   architecture figure used in this README
 ├── artifacts/                      JSON/YAML payloads sent by the scripts
 │   ├── gateway.json  project.json  rest-api.json  deployment.json
 │   ├── subscription-plan.platform.json  subscription-plan.portal.json
